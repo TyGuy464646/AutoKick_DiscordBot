@@ -40,7 +40,6 @@ public class Database {
 		CodecRegistry codecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(), pojoCodecRegistry);
 		MongoClientSettings clientSettings = MongoClientSettings.builder()
 				.applyConnectionString(new ConnectionString(uri))
-				.readPreference(ReadPreference.primaryPreferred())
 				.codecRegistry(codecRegistry)
 				.build();
 		MongoClient mongoClient = MongoClients.create(clientSettings);

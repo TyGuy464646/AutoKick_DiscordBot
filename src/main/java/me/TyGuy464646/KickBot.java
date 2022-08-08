@@ -4,6 +4,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 import me.TyGuy464646.commands.CommandRegistry;
 import me.TyGuy464646.data.Database;
 import me.TyGuy464646.data.GuildData;
+import me.TyGuy464646.listeners.GuildListener;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -48,7 +49,9 @@ public class KickBot {
 		shardManager = builder.build();
 		GuildData.init(this);
 
-		// TODO: Register Listeners
+		shardManager.addEventListener(
+				new GuildListener(this)
+		);
 	}
 
 	public static void main(String[] args) throws LoginException {

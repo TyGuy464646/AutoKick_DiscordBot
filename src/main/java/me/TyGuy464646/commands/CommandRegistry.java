@@ -2,6 +2,7 @@ package me.TyGuy464646.commands;
 
 import me.TyGuy464646.KickBot;
 import me.TyGuy464646.commands.staff.JoinMessage;
+import me.TyGuy464646.commands.staff.KickMessage;
 import me.TyGuy464646.commands.staff.Setup;
 import me.TyGuy464646.commands.utility.Current;
 import me.TyGuy464646.data.GuildData;
@@ -49,6 +50,7 @@ public class CommandRegistry extends ListenerAdapter {
 		mapCommand(
 				// Staff commands
 				new JoinMessage(bot),
+				new KickMessage(bot),
 				new Setup(bot),
 
 				// Utility commands

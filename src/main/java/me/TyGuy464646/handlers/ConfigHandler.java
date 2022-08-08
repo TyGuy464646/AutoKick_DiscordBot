@@ -7,10 +7,12 @@ import me.TyGuy464646.data.cache.Config;
 import net.dv8tion.jda.api.entities.Guild;
 import org.bson.conversions.Bson;
 
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Handles config data for the guild and various modules.
+ *
  * @author TyGuy464646
  */
 public class ConfigHandler {
@@ -35,12 +37,16 @@ public class ConfigHandler {
 
 	/**
 	 * Access the config cache.
+	 *
 	 * @return a chache instance of the Config from database.
 	 */
-	public Config getConfig() { return config; }
+	public Config getConfig() {
+		return config;
+	}
 
 	/**
 	 * Check if guild has kick messages turned on.
+	 *
 	 * @return true if on, otherwise false.
 	 */
 	public boolean isKickMessage() {
@@ -50,6 +56,7 @@ public class ConfigHandler {
 
 	/**
 	 * Sets kick message to local cache and database.
+	 *
 	 * @param choice the boolean that is to be set.
 	 */
 	public void enableKickMessage(boolean choice) {
@@ -59,6 +66,7 @@ public class ConfigHandler {
 
 	/**
 	 * Check if guild has join messages turned on.
+	 *
 	 * @return true if on, otherwise false.
 	 */
 	public boolean isJoinMessage() {
@@ -68,6 +76,7 @@ public class ConfigHandler {
 
 	/**
 	 * Sets join message to local cache and database.
+	 *
 	 * @param choice the boolean that is to be set.
 	 */
 	public void enableJoinMessage(boolean choice) {
@@ -77,6 +86,7 @@ public class ConfigHandler {
 
 	/**
 	 * Check if guild has kick channel set.
+	 *
 	 * @return channel.
 	 */
 	public Long getKickChannel() {
@@ -86,6 +96,7 @@ public class ConfigHandler {
 
 	/**
 	 * Sets the kick channel to local cache and database.
+	 *
 	 * @param id the id of the kick channel being set.
 	 */
 	public void setKickChannel(Long id) {
@@ -97,6 +108,7 @@ public class ConfigHandler {
 
 	/**
 	 * Checks if guild has join channel set.
+	 *
 	 * @return channel.
 	 */
 	public Long getJoinChannel() {
@@ -106,6 +118,7 @@ public class ConfigHandler {
 
 	/**
 	 * Sets the join channel to local cache and database.
+	 *
 	 * @param id the id of the join channel being set.
 	 */
 	public void setJoinChannel(Long id) {
@@ -117,6 +130,7 @@ public class ConfigHandler {
 
 	/**
 	 * Gets kick time set by guild.
+	 *
 	 * @return the kick time.
 	 */
 	public int getKickTime() {
@@ -126,6 +140,7 @@ public class ConfigHandler {
 
 	/**
 	 * Sets the kick time to local cache and database.
+	 *
 	 * @param time the time that is set.
 	 */
 	public void setKickTime(int time) {
@@ -135,6 +150,7 @@ public class ConfigHandler {
 
 	/**
 	 * Gets the {@link TimeUnit} set by the guild.
+	 *
 	 * @return the {@link TimeUnit}
 	 */
 	public TimeUnit getTimeUnit() {
@@ -152,6 +168,7 @@ public class ConfigHandler {
 
 	/**
 	 * Sets the time unit to local cache and database.
+	 *
 	 * @param timeUnit the {@link TimeUnit} being set.
 	 */
 	public void setTimeUnit(String timeUnit) {
@@ -161,6 +178,7 @@ public class ConfigHandler {
 
 	/**
 	 * Gets the required role set by the guild.
+	 *
 	 * @return the required role.
 	 */
 	public Long getRequiredRole() {
@@ -170,6 +188,7 @@ public class ConfigHandler {
 
 	/**
 	 * Sets the required role to local cache and database.
+	 *
 	 * @param role the role being set.
 	 */
 	public void setRequiredRole(Long role) {

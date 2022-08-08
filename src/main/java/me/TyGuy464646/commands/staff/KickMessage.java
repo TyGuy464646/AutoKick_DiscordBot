@@ -12,21 +12,16 @@ import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 
-/**
- * Command that enables/disables join messages and the channel they appear in.
- *
- * @author TyGuy464646
- */
-public class JoinMessage extends Command {
+public class KickMessage extends Command {
 
-	public JoinMessage(KickBot bot) {
+	public KickMessage(KickBot bot) {
 		super(bot);
-		this.name = "joinmessage";
-		this.description = "Enable/Disable join messages and edit which channel they show up in.";
+		this.name = "kickmessage";
+		this.description = "Enable/Disable kick messages and edit which channel they show up in.";
 		this.category = Category.STAFF;
 		this.permission = Permission.MANAGE_SERVER;
-		this.args.add(new OptionData(OptionType.BOOLEAN, "enablemessage", "Enable/Disable join messages."));
-		this.args.add(new OptionData(OptionType.CHANNEL, "channel", "Set which channel you want the join messages to appear."));
+		this.args.add(new OptionData(OptionType.BOOLEAN, "enablemessage", "Enable/Disable kick emssages."));
+		this.args.add(new OptionData(OptionType.CHANNEL, "channel", "Set which channel you want the kick messages to appear."));
 	}
 
 	public void execute(SlashCommandInteractionEvent event) {
@@ -38,15 +33,15 @@ public class JoinMessage extends Command {
 		OptionMapping channel = event.getOption("channel");
 
 		if (enableMessage != null)
-			configHandler.enableJoinMessage(enableMessage.getAsBoolean());
+			configHandler.enableKickMessage(enableMessage.getAsBoolean());
 
 		if (channel != null)
-			configHandler.setJoinChannel(channel.getAsLong());
+			configHandler.setKickChannel(channel.getAsLong());
 
 		if (enableMessage == null && channel == null) {
-			configHandler.enableJoinMessage(false);
-			configHandler.setJoinChannel(null);
-			event.getHook().sendMessageEmbeds(EmbedUtils.createSuccess("Reset join messages!")).queue();
+			configHandler.enableKickMessage(false);
+			configHandler.setKickChannel(null);
+			event.getHook().sendMessageEmbeds(EmbedUtils.createSuccess("Reset kick messages!")).queue();
 			return;
 		}
 

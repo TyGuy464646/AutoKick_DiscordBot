@@ -1,11 +1,14 @@
 package me.TyGuy464646.data.cache;
 
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Role;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
 
 /**
  * POJO object that stores config data for a guild.
+ *
  * @author TyGuy464646
  */
 public class Config {
@@ -33,7 +36,8 @@ public class Config {
 	@BsonProperty("required_role")
 	private Long requiredRole;
 
-	public Config() {}
+	public Config() {
+	}
 
 	public Config(long guild) {
 		this.guild = guild;
