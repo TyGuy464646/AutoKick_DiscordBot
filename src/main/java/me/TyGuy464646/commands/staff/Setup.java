@@ -51,7 +51,6 @@ public class Setup extends Command {
 	private void parseTime(SlashCommandInteractionEvent event, String time) {
 		GuildData data = GuildData.get(event.getGuild());
 		ConfigHandler configHandler = data.configHandler;
-		Config config = data.configHandler.getConfig();
 
 		char[] timeArr = time.toLowerCase().toCharArray();
 		StringBuilder amount = new StringBuilder();
